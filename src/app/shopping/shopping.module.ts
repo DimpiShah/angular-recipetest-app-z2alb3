@@ -6,7 +6,8 @@ import {ShoppingListRoutingModule} from './shopping-list/shopping-list-routing.m
 @NgModule({
   imports: [
     CommonModule,
-    ShoppingListRoutingModule
+    ShoppingListRoutingModule,
+    
   ],
   declarations: [ShoppingListComponent]
 })
