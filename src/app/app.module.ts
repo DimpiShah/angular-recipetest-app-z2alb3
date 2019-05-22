@@ -7,10 +7,13 @@ import { HelloComponent } from './hello.component';
 import {ShoppingModule} from './shopping/shopping.module';
 import {MenuModule} from './menu/menu.module';
 import {RecipeModule} from './recipe/recipe.module';
+import { ItemService } from './shared/item.service';
+import { DataService } from './shared/data.service';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule,ShoppingModule,MenuModule,RecipeModule,AppRoutingModule ],
   declarations: [ AppComponent, HelloComponent ],
-  bootstrap:    [ AppComponent ]
+  bootstrap:    [ AppComponent ],
+  providers: [ItemService, DataService]
 })
 export class AppModule { }
