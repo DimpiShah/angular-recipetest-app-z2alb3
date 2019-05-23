@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import {Item} from '../models/item';
-import { Subject } from 'rxjs';
+import { BehaviorSubject  } from 'rxjs';
 import{DataService} from './data.service';
 @Injectable()
 export class ItemService {
  items : Item[] = [];
-  public itemsChanged = new Subject<Item[]>();
+  public itemsChanged = new BehaviorSubject <Item[]>([]);
   constructor(private dataService:DataService) { }
 
   getItems()
