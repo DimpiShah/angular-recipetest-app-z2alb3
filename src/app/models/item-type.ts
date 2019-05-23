@@ -1,8 +1,8 @@
 import {SubType} from './sub-type.enum';
 
 export class ItemType {
-  private name : string;
-  private subType : SubType;
+  public name : string;
+  public subType : SubType;
 
   constructor(name:string,subType:SubType)
   {

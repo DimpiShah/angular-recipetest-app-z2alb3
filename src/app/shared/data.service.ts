@@ -6,13 +6,15 @@ import {Unit} from '../models/unit.enum';
 
 @Injectable()
 export class DataService {
-items : Item[];
+items : Item[] = [];
   constructor( ) { }
  
  loadItems()
  {
     const itemType = new ItemType("Food",SubType.Veg);
     this.items.push(new Item("Onions",itemType,23,Unit.kilogram));
+   return this.items;
+
  }
   
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import * as firebae from 'firebase'
 
+
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
@@ -8,4 +9,8 @@ import * as firebae from 'firebase'
 })
 export class AppComponent  {
   name = 'Angular2';
+  constructor()
+  {
+       
+  }
 }

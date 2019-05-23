@@ -2,10 +2,10 @@ import {ItemType} from './item-type';
 import {Unit} from './unit.enum';
 
 export class Item {
-  private name : string;
-  private type : ItemType;
-  private amount : number;
-  private unit : Unit;
+  public name : string;
+  public type : ItemType;
+  public amount : number;
+  public unit : Unit;
 
   constructor(name:string,typename:ItemType,amount:number,unit:Unit)
   {

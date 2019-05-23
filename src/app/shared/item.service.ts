@@ -1,14 +1,19 @@
 import { Injectable } from '@angular/core';
 import {Item} from '../models/item';
-
+import { Subject } from 'rxjs';
+import{DataService} from './data.service';
 @Injectable()
 export class ItemService {
  items : Item[] = [];
-  constructor() { }
+  public itemsChanged = new Subject<Item[]>();
+  constructor(private dataService:DataService) { }
 
   getItems()
   {
-    return this.items.slice();
+    Object.assign(this.items,this.dataService.loadItems());
+    const allItems = this.items.slice();
+        console.log("--------"+allItems.length);
+    this.itemsChanged.next(allItems);
   }
 
   getItem(name:string)
