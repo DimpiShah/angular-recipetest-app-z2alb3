@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Item} from '../models/item';
-
+import { Subject  } from 'rxjs';
 import{ItemService} from '../shared/item.service';
 
 @Component({
@@ -9,17 +9,17 @@ import{ItemService} from '../shared/item.service';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
-items:Item[];
+public allItems : Item[];
   constructor(private itemService:ItemService) { }
 
   ngOnInit() {
-     this.itemService.getItems();
-     this.itemService.itemsChanged.subscribe(
-       (item:Item[]) =>
+     this.allItems = this.itemService.getItems();
+     this.itemService.subject.subscribe({
+       next:function(value)
        {
-          console.log(item);
+          console.log("--------------value");
        }
-     );
+     });
      
   }
 

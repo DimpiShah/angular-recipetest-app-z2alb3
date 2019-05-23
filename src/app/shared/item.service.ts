@@ -4,20 +4,18 @@ import {SubType} from '../models/sub-type.enum';
 import {Unit} from '../models/unit.enum';
 import {Item} from '../models/item';
 import { Subject  } from 'rxjs';
+
 @Injectable()
 export class ItemService {
- items : Item[] = [];
-  public itemsChanged = new Subject <Item[]>();
+private items : Item[] = [];
+  public subject = new Subject <Item[]>();
   constructor() { }
 
   getItems()
   {
-      console.log("----------inise");
-     const itemType = new ItemType("Food",SubType.Veg);
+      const itemType = new ItemType("Food",SubType.Veg);
       this.items.push(new Item("Onions",itemType,23,Unit.kilogram));
-      
-    this.itemsChanged.next(this.items.slice());
-
+      this.subject.next(this.items);
   }
 
   getItem(name:string)

@@ -9,7 +9,6 @@ import {MenuModule} from './menu/menu.module';
 import {RecipeModule} from './recipe/recipe.module';
 import {ItemModule} from './item/item.module';
 import { ItemService } from './shared/item.service';
-import { DataService } from './shared/data.service';
 
 
 
@@ -17,6 +16,6 @@ import { DataService } from './shared/data.service';
   imports:      [ BrowserModule, FormsModule,ShoppingModule,ItemModule,MenuModule,RecipeModule,AppRoutingModule ],
   declarations: [ AppComponent, HelloComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [ItemService, DataService]
+  providers: [ItemService]
 })
 export class AppModule { }
