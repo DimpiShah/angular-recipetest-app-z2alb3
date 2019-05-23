@@ -17,6 +17,7 @@ items:Item[];
      this.itemService.itemsChanged.subscribe(
        (response:Item[]) =>
        {
+         console.log("hello");
          this.items = response;
          console.log("--------"+this.items[0].name);
        }

@@ -11,9 +11,7 @@ export class ItemService {
   getItems()
   {
     Object.assign(this.items,this.dataService.loadItems());
-    const allItems = this.items.slice();
-        console.log("--------"+allItems.length);
-    this.itemsChanged.next(allItems);
+    this.itemsChanged.next(this.items.slice());
   }
 
   getItem(name:string)
