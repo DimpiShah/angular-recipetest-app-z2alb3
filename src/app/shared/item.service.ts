@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
+import {ItemType} from '../models/item-type';
+import {SubType} from '../models/sub-type.enum';
+import {Unit} from '../models/unit.enum';
 import {Item} from '../models/item';
-import { BehaviorSubject  } from 'rxjs';
-import{DataService} from './data.service';
+import { Subject  } from 'rxjs';
 @Injectable()
 export class ItemService {
  items : Item[] = [];
-  public itemsChanged = new BehaviorSubject <Item[]>([]);
-  constructor(private dataService:DataService) { }
+  public itemsChanged = new Subject <Item[]>();
+  constructor() { }
 
   getItems()
   {
-    Object.assign(this.items,this.dataService.loadItems());
+      console.log("----------inise");
+     const itemType = new ItemType("Food",SubType.Veg);
+      this.items.push(new Item("Onions",itemType,23,Unit.kilogram));
+      
     this.itemsChanged.next(this.items.slice());
+
   }
 
   getItem(name:string)

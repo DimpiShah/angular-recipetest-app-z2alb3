@@ -14,9 +14,12 @@ items:Item[];
 
   ngOnInit() {
      this.itemService.getItems();
-     this.itemService.itemsChanged.subscribe(items =>{
-       
-     });
+     this.itemService.itemsChanged.subscribe(
+       (item:Item[]) =>
+       {
+          console.log(item);
+       }
+     );
      
   }
 
