@@ -7,5 +7,5 @@ import * as firebae from 'firebase'
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  name = 'Angular1';
+  name = 'Angular2';
 }
