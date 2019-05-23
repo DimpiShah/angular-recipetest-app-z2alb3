@@ -16,6 +16,7 @@ private items : Item[] = [];
       const itemType = new ItemType("Food",SubType.Veg);
       this.items.push(new Item("Onions",itemType,23,Unit.kilogram));
       this.subject.next(this.items);
+      return this.items.slice();
   }
 
   getItem(name:string)

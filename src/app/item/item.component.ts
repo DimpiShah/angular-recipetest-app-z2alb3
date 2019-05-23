@@ -9,11 +9,11 @@ import{ItemService} from '../shared/item.service';
   styleUrls: ['./item.component.css']
 })
 export class ItemComponent implements OnInit {
-public allItems : Item[];
+public items : Item[];
   constructor(private itemService:ItemService) { }
 
   ngOnInit() {
-     this.allItems = this.itemService.getItems();
+     this.items = this.itemService.getItems();
      this.itemService.subject.subscribe({
        next:function(value)
        {
