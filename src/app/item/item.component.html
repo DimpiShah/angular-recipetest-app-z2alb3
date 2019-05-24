@@ -1,6 +1,25 @@
-<mat-list>
-  <h3 mat-subheader>Items</h3>
-  <mat-list-item *ngFor="let item of items">
-    <h4 mat-line>{{item.name}}</h4>
-  </mat-list-item>
-</mat-list>
+<mat-table  #table [dataSource]="dataSource">
+<ng-container  matColumnDef="name">
+  <mat-header-cell *matHeaderCellDef> name </mat-header-cell>
+  <mat-cell *matCellDef="let item"> {{item.name}} </mat-cell>
+</ng-container>
+<ng-container  matColumnDef="type">
+  <mat-header-cell *matHeaderCellDef> type </mat-header-cell>
+  <mat-cell *matCellDef="let item"> {{item.type.name}} </mat-cell>
+</ng-container>
+<ng-container  matColumnDef="unit">
+  <mat-header-cell *matHeaderCellDef> unit </mat-header-cell>
+  <mat-cell *matCellDef="let item"> {{units[item.unit]}} </mat-cell>
+</ng-container>
+<ng-container  matColumnDef="operations">
+
+<mat-header-cell *matHeaderCellDef > Operations </mat-header-cell>
+
+<mat-cell *matCellDef="let element">  <button  mat-button  color="primary" (click)="deleteItem(element.id)"><mat-icon>delete</mat-icon>
+
+</button>  <button  mat-button  color="primary" (click)="editItem(element.id)"><mat-icon>edit</mat-icon></button>  </mat-cell>
+
+</ng-container>
+<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
