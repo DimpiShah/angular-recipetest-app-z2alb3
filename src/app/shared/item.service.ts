@@ -32,11 +32,11 @@ private items : Item[] = [];
         }
   }
 
-  
 
   addItem(item : Item)
   {
     this.items.push(item);
+    
       this.subject.next(this.items);
   }
 
@@ -48,6 +48,7 @@ private items : Item[] = [];
 
   saveItem(item:Item,index:number)
   {
+  
     const existingItem = this.items[index];
     Object.assign(existingItem,item);
     this.subject.next(this.items); 

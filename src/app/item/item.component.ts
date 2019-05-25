@@ -78,7 +78,7 @@ itemForm = new FormGroup({
     const newItem = Object.assign({},this.itemForm.value);
     const itemType = new ItemType(newItem.itemType,newItem.subType);
     const itemToAdd = new Item(newItem.name,itemType,newItem.amount,newItem.unit);
-    console.log(itemToAdd);
+ 
     this.itemService.addItem(itemToAdd);
   }
 
@@ -87,7 +87,7 @@ saveItem()
     const newItem = Object.assign({},this.itemForm.value);
     const itemType = new ItemType(newItem.itemType,newItem.subType);
     const itemToAdd = new Item(newItem.name,itemType,newItem.amount,newItem.unit);
-    console.log(itemToAdd);
+  
     this.itemService.saveItem(itemToAdd,this.editingItemIndex);
   }
 
