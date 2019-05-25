@@ -1,28 +1,17 @@
-<mat-table  #table [dataSource]="dataSource">
+<div class="mat-app-background basic-container">
+<div class="example-container">
+  <mat-form-field>
+    <input matInput placeholder="Input">
+  </mat-form-field>
 
-<ng-container  matColumnDef="name">
-  <mat-header-cell *matHeaderCellDef> name </mat-header-cell>
-  <mat-cell *matCellDef="let item">  <mat-form-field >
-        <input  placeholder="" formControlName="name" matInput>
-      </mat-form-field> </mat-cell>
-</ng-container>
-<ng-container  matColumnDef="type">
-  <mat-header-cell *matHeaderCellDef> type </mat-header-cell>
-  <mat-cell *matCellDef="let item">  <input  placeholder="" matInput></mat-cell>
-</ng-container>
-<ng-container  matColumnDef="unit">
-  <mat-header-cell *matHeaderCellDef> unit </mat-header-cell>
-  <mat-cell *matCellDef="let item">  <input  placeholder="" matInput> </mat-cell>
-</ng-container>
-<ng-container  matColumnDef="operations">
+  <mat-form-field>
+    <textarea matInput placeholder="Textarea"></textarea>
+  </mat-form-field>
 
-<mat-header-cell *matHeaderCellDef > Operations </mat-header-cell>
-
-<mat-cell *matCellDef="let element">  <button  mat-button  color="primary" (click)="deleteItem(element.id)"><mat-icon>delete</mat-icon>
-
-</button>  <button  mat-button  color="primary" (click)="editItem(element.id)"><mat-icon>edit</mat-icon></button>  </mat-cell>
-
-</ng-container>
-<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>
+  <mat-form-field>
+    <mat-select placeholder="Select">
+      <mat-option value="option">Option</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+</div>

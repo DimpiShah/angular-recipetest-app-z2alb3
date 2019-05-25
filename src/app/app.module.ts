@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule,FormGroup,FormControl } from '@angular/forms';
+ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HelloComponent } from './hello.component';
@@ -13,7 +14,7 @@ import { ItemService } from './shared/item.service';
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule,ShoppingModule,ItemModule,MenuModule,RecipeModule,AppRoutingModule ],
+  imports:      [ BrowserModule,BrowserAnimationsModule, FormsModule,ReactiveFormsModule,ShoppingModule,ItemModule,MenuModule,RecipeModule,AppRoutingModule ],
   declarations: [ AppComponent, HelloComponent ],
   bootstrap:    [ AppComponent ],
   providers: [ItemService]
