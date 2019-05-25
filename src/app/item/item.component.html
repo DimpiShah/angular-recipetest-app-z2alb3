@@ -1,17 +1,41 @@
-<div class="mat-app-background basic-container">
-<div class="example-container">
-  <mat-form-field>
-    <input matInput placeholder="Input">
-  </mat-form-field>
+
+<form [formGroup]="itemForm" (ngSubmit)="addItem()"> 
 
   <mat-form-field>
-    <textarea matInput placeholder="Textarea"></textarea>
+    <input matInput placeholder="item name" formControlName="name">
   </mat-form-field>
-
-  <mat-form-field>
-    <mat-select placeholder="Select">
-      <mat-option value="option">Option</mat-option>
+ <mat-form-field>
+    <mat-select placeholder="ItemType" formControlName="itemType">
+      <mat-option *ngFor="let c of itemTypes" value="c" >{{c}}</mat-option>
     </mat-select>
   </mat-form-field>
-</div>
-</div>
+   <mat-form-field>
+    <mat-select placeholder="SubType" formControlName="subType">
+      <mat-option *ngFor="let c of subypes" value="c" >{{c}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+ <mat-form-field>
+    <mat-select placeholder="Unit" formControlName="unit">
+      <mat-option *ngFor="let c of units" value="c" >{{c}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+   <mat-form-field>
+    <input matInput placeholder="amount" formControlName="amount">
+  </mat-form-field>
+<button type="submit" mat-button *ngIf="editing==false">Add</button>
+
+<button type="button" (click)="saveItem()" *ngIf="editing==true" mat-button>Save</button>
+<button type="button" (click)="ClearItem()"  mat-button>Clear</button>
+</form>
+
+<mat-list>
+  <mat-list-item *ngFor="let item of items; index as i">
+    <span>{{item.name}}</span>
+    <span>--{{item.type.name}}</span>
+      <span>--{{subypes[item.type.subType]}}</span>
+    <span>--{{units[item.unit]}}</span>
+     <span>--{{item.amount}}</span>
+     <span><button type="button" (click)="EditItem(i)" mat-button>Edit</button></span>
+  
+  </mat-list-item>
+</mat-list>

@@ -15,19 +15,34 @@ private items : Item[] = [];
   {
       const itemType = new ItemType("Food",SubType.Veg);
       this.items.push(new Item("Onions",itemType,23,Unit.kilogram));
-      this.subject.next(this.items);
+    
       return this.items.slice();
   }
 
   getItem(name:string)
   {
         const itemIndex = this.items.findIndex(item => item.name === name);
+        if(itemIndex > 0)
+        {
         return this.items[itemIndex];
+        }
+        else
+        {
+          return null;
+        }
+  }
+
+  saveItem(item:Item,index:number)
+  {
+    const existingItem = this.items[index];
+    Object.assign(existingItem,item);
+    this.subject.next(this.items); 
   }
 
   addItem(item : Item)
   {
     this.items.push(item);
+      this.subject.next(this.items);
   }
 
   deleteItem(name :string)
