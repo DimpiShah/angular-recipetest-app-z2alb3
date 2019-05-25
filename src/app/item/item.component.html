@@ -6,17 +6,17 @@
   </mat-form-field>
  <mat-form-field>
     <mat-select placeholder="ItemType" formControlName="itemType">
-      <mat-option *ngFor="let c of itemTypes" value="c" >{{c}}</mat-option>
+      <mat-option *ngFor="let it of itemTypes" [value]="it" >{{it}}</mat-option>
     </mat-select>
   </mat-form-field>
    <mat-form-field>
     <mat-select placeholder="SubType" formControlName="subType">
-      <mat-option *ngFor="let c of subypes" value="c" >{{c}}</mat-option>
+      <mat-option *ngFor="let st of subypes" [value]="st" >{{st}}</mat-option>
     </mat-select>
   </mat-form-field>
  <mat-form-field>
     <mat-select placeholder="Unit" formControlName="unit">
-      <mat-option *ngFor="let c of units" value="c" >{{c}}</mat-option>
+      <mat-option *ngFor="let c of units" [value]="c" >{{c}}</mat-option>
     </mat-select>
   </mat-form-field>
    <mat-form-field>
@@ -30,6 +30,7 @@
 
 <mat-list>
   <mat-list-item *ngFor="let item of items; index as i">
+   
     <span>{{item.name}}</span>
     <span>--{{item.type.name}}</span>
       <span>--{{subypes[item.type.subType]}}</span>

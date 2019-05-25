@@ -32,12 +32,7 @@ private items : Item[] = [];
         }
   }
 
-  saveItem(item:Item,index:number)
-  {
-    const existingItem = this.items[index];
-    Object.assign(existingItem,item);
-    this.subject.next(this.items); 
-  }
+  
 
   addItem(item : Item)
   {
@@ -49,5 +44,12 @@ private items : Item[] = [];
   {
     const itemIndex = this.items.findIndex(item => item.name === name);
     this.items.splice(itemIndex);
+  }
+
+  saveItem(item:Item,index:number)
+  {
+    const existingItem = this.items[index];
+    Object.assign(existingItem,item);
+    this.subject.next(this.items); 
   }
 }

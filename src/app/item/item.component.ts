@@ -54,8 +54,8 @@ itemForm = new FormGroup({
      this.itemForm.patchValue({
        name:itemToEdit.name,
        itemType : itemToEdit.type.name,
-       unit:itemToEdit.unit,
-       subType:itemToEdit.type.subType,
+       unit:this.units[itemToEdit.unit],
+       subType:this.subypes[itemToEdit.type.subType],
        amount:itemToEdit.amount
      });
   }
