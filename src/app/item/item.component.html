@@ -1,15 +1,18 @@
 <mat-table  #table [dataSource]="dataSource">
+
 <ng-container  matColumnDef="name">
   <mat-header-cell *matHeaderCellDef> name </mat-header-cell>
-  <mat-cell *matCellDef="let item"> {{item.name}} </mat-cell>
+  <mat-cell *matCellDef="let item">  <mat-form-field >
+        <input  placeholder="" formControlName="name" matInput>
+      </mat-form-field> </mat-cell>
 </ng-container>
 <ng-container  matColumnDef="type">
   <mat-header-cell *matHeaderCellDef> type </mat-header-cell>
-  <mat-cell *matCellDef="let item"> {{item.type.name}} </mat-cell>
+  <mat-cell *matCellDef="let item">  <input  placeholder="" matInput></mat-cell>
 </ng-container>
 <ng-container  matColumnDef="unit">
   <mat-header-cell *matHeaderCellDef> unit </mat-header-cell>
-  <mat-cell *matCellDef="let item"> {{units[item.unit]}} </mat-cell>
+  <mat-cell *matCellDef="let item">  <input  placeholder="" matInput> </mat-cell>
 </ng-container>
 <ng-container  matColumnDef="operations">
 

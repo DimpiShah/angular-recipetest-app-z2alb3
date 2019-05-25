@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule,FormGroup,FormControl } from '@angular/forms';
 import {Item} from '../models/item';
 import {Unit} from '../models/unit.enum';
 import { Subject  } from 'rxjs';
@@ -13,7 +14,8 @@ import {MatPaginator, MatSort,MatTableModule, MatTableDataSource} from '@angular
 export class ItemComponent implements OnInit {
 public items : Item[];
 public units : string[];
- dataSource: MatTableDataSource<Item>;
+
+dataSource: MatTableDataSource<Item>;
 displayedColumns  = ['name', 'type', 'unit','operations'];
   constructor(private itemService:ItemService) { }
 
